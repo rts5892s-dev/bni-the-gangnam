@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>BNI 더강남 챕터 | 연결이 성과가 되는 네트워크</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  :root{
+    --navy:#1f3a5f; --navy-bright:#3f7cb0; --navy-dim:rgba(31,58,95,.07);
+    --red:#cf2030; --red-dim:rgba(207,32,48,.08);
+    --line:#e3e4e8; --bg-2:#f6f7f8;
+    --text:#1a1a1a; --text-dim:#5b5f66; --text-faint:#9a9da3;
+  }
+  *{word-break:keep-all;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Noto Sans KR',sans-serif;color:var(--text);}
+  .navy{color:var(--navy);} .bg-navy{background-color:var(--navy);}
+  .navy-bright{color:var(--navy-bright);}
+  .red{color:var(--red);} .bg-red-brand{background-color:var(--red);}
+  .border-line{border-color:var(--line);}
+  .bg-panel-2{background-color:var(--bg-2);}
+  .eyebrow{font-size:13px;letter-spacing:1.5px;font-weight:700;color:var(--navy-bright);text-transform:uppercase;}
+  .fade-up{opacity:0;transform:translateY(18px);transition:opacity .6s ease, transform .6s ease;}
+  .fade-up.show{opacity:1;transform:translateY(0);}
+  .cat-card{border:1px solid var(--line);border-radius:14px;padding:22px 20px;background:#fff;transition:box-shadow .25s ease, transform .25s ease;}
+  .cat-card:hover{box-shadow:0 12px 28px rgba(16,24,40,.08);transform:translateY(-3px);border-color:var(--navy-bright);}
+  .stat-num{font-size:34px;font-weight:800;color:var(--navy);}
+  .quote-mark{font-size:15px;line-height:1.7;font-weight:700;border-left:3px solid var(--red);padding-left:16px;}
+</style>
+</head>
+<body class="bg-white text-gray-800">
+
+<!-- ===== Header / Nav ===== -->
+<header class="fixed top-0 inset-x-0 z-50 bg-white/90 backdrop-blur border-b border-line">
+  <div class="max-w-6xl mx-auto px-5 h-16 flex items-center justify-between">
+    <a href="#home" class="leading-tight">
+      <div class="font-black navy text-base tracking-tight">BNI 더강남 챕터</div>
+      <div class="text-[10px] text-gray-500 font-medium tracking-wide">THE GANGNAM SHOWCASE CHAPTER</div>
+    </a>
+    <nav class="hidden md:flex items-center gap-8 text-sm font-bold text-gray-600">
+      <a href="#home" class="hover:text-[--navy]">Home</a>
+      <a href="#referral" class="hover:text-[--navy]">추천사례</a>
+      <a href="members.html" class="hover:text-[--navy]">멤버</a>
+      <a href="#meeting" class="hover:text-[--navy]">정기모임</a>
+      <a href="#apply" class="ml-2 px-4 py-2 rounded-full bg-red-brand text-white hover:opacity-90 transition">참관 신청</a>
+    </nav>
+    <button id="menuBtn" class="md:hidden w-9 h-9 flex items-center justify-center" aria-label="메뉴">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+    </button>
+  </div>
+  <div id="mobileMenu" class="hidden md:hidden border-t border-line bg-white px-5 py-4 flex flex-col gap-4 text-sm font-bold text-gray-700">
+    <a href="#home">Home</a>
+    <a href="#referral">추천사례</a>
+    <a href="members.html">멤버</a>
+    <a href="#meeting">정기모임</a>
+    <a href="#apply" class="px-4 py-2 rounded-full bg-red-brand text-white text-center">참관 신청</a>
+  </div>
+</header>
+
+<!-- ===== Hero ===== -->
+<section id="home" class="pt-36 pb-20 px-5 bg-gradient-to-b from-panel-2 to-white" style="background:linear-gradient(180deg,#f6f7f8 0%,#ffffff 100%);">
+  <div class="max-w-6xl mx-auto">
+    <div class="eyebrow mb-4 fade-up">BNI THE GANGNAM SHOWCASE CHAPTER</div>
+    <h1 class="text-3xl md:text-5xl font-black leading-tight mb-6 fade-up">
+      연결이 성과가 되는<br><span class="red">네트워크</span>
+    </h1>
+    <p class="text-gray-600 text-base md:text-lg leading-relaxed max-w-xl mb-9 fade-up">
+      BNI 더강남 챕터는 매주 한자리에 모여 서로의 비즈니스를 소개하고 추천하는
+      구조화된 레퍼럴(referral) 네트워크입니다. 업종당 한 명, 신뢰를 기반으로
+      성장하는 사업가들의 커뮤니티입니다.
+    </p>
+    <div class="flex flex-wrap gap-3 mb-14 fade-up">
+      <a href="#apply" class="px-6 py-3 rounded-full bg-red-brand text-white font-bold text-sm hover:opacity-90 transition">참관 신청하기</a>
+      <a href="members.html" class="px-6 py-3 rounded-full border border-line font-bold text-sm navy hover:bg-panel-2 transition">멤버 보기</a>
+    </div>
+    <div class="grid grid-cols-3 gap-6 max-w-xl fade-up">
+      <div><div class="stat-num">59<span class="text-lg">개</span></div><div class="text-xs text-gray-500 font-medium mt-1">회원 기업</div></div>
+      <div><div class="stat-num">9<span class="text-lg">개</span></div><div class="text-xs text-gray-500 font-medium mt-1">업종 카테고리</div></div>
+      <div><div class="stat-num">주1회</div><div class="text-xs text-gray-500 font-medium mt-1">정기 조찬회의</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Categories ===== -->
+<section id="categories" class="py-20 px-5 bg-white">
+  <div class="max-w-6xl mx-auto">
+    <div class="eyebrow mb-3 fade-up">CATEGORIES</div>
+    <h2 class="text-2xl md:text-3xl font-black mb-3 fade-up">9개 업종 카테고리, 59개 회원 기업</h2>
+    <p class="text-gray-500 text-sm md:text-base mb-10 fade-up">업종당 한 명의 독점 멤버십 원칙으로 운영됩니다. 카드를 누르면 멤버 디렉토리에서 상세 정보를 볼 수 있습니다.</p>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+      <a href="members.html#grp-0" class="cat-card fade-up">
+        <div class="text-xs font-bold navy-bright mb-2">01</div>
+        <h3 class="font-bold text-lg mb-1">식음료 · 외식 · 식자재</h3>
+        <p class="text-sm text-gray-500">6개 기업</p>
+      </a>
+      <a href="members.html#grp-1" class="cat-card fade-up">
+        <div class="text-xs font-bold navy-bright mb-2">02</div>
+        <h3 class="font-bold text-lg mb-1">전문자문 · 행정</h3>
+        <p class="text-sm text-gray-500">8개 기업</p>
+      </a>
+      <a href="members.html#grp-2" class="cat-card fade-up">
+        <div class="text-xs font-bold navy-bright mb-2">03</div>
+        <h3 class="font-bold text-lg mb-1">부동산 · 건축 · 시설</h3>
+        <p class="text-sm text-gray-500">14개 기업</p>
+      </a>
+      <a href="members.html#grp-3" class="cat-card fade-up">
+        <div class="text-xs font-bold navy-bright mb-2">04</div>
+        <h3 class="font-bold text-lg mb-1">웰니스 · 뷰티 · 의료</h3>
+        <p class="text-sm text-gray-500">4개 기업</p>
+      </a>
+      <a href="members.html#grp-4" class="cat-card fade-up">
+        <div class="text-xs font-bold navy-bright mb-2">05</div>
+        <h3 class="font-bold text-lg mb-1">라이프스타일 · 이벤트 · 리테일</h3>
+        <p class="text-sm text-gray-500">5개 기업</p>
+      </a>
+      <a href="members.html#grp-5" class="cat-card fade-up">
+        <div class="text-xs font-bold navy-bright mb-2">06</div>
+        <h3 class="font-bold text-lg mb-1">자동차 판매 · 리스 · 수리</h3>
+        <p class="text-sm text-gray-500">5개 기업</p>
+      </a>
+      <a href="members.html#grp-6" class="cat-card fade-up">
+        <div class="text-xs font-bold navy-bright mb-2">07</div>
+        <h3 class="font-bold text-lg mb-1">브랜딩 · 마케팅 · 디자인</h3>
+        <p class="text-sm text-gray-500">4개 기업</p>
+      </a>
+      <a href="members.html#grp-7" class="cat-card fade-up">
+        <div class="text-xs font-bold navy-bright mb-2">08</div>
+        <h3 class="font-bold text-lg mb-1">금융 · 보험 · 자산</h3>
+        <p class="text-sm text-gray-500">6개 기업</p>
+      </a>
+      <a href="members.html#grp-8" class="cat-card fade-up">
+        <div class="text-xs font-bold navy-bright mb-2">09</div>
+        <h3 class="font-bold text-lg mb-1">IT · 통신 · 오피스 솔루션</h3>
+        <p class="text-sm text-gray-500">7개 기업</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Meeting Info ===== -->
+<section id="meeting" class="py-20 px-5 bg-panel-2">
+  <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-start">
+    <div>
+      <div class="eyebrow mb-3 fade-up">WEEKLY MEETING</div>
+      <h2 class="text-2xl md:text-3xl font-black mb-5 fade-up">정기모임 안내</h2>
+      <p class="text-gray-600 text-sm md:text-base leading-relaxed mb-6 fade-up">
+        매주 정해진 시간에 모여 각자의 비즈니스를 소개하고, 서로의 네트워크를
+        추천으로 연결합니다. 처음 방문하시는 분도 편안하게 참여하실 수 있도록
+        비지터 호스트팀이 처음부터 끝까지 안내해드립니다.
+      </p>
+      <p class="quote-mark red fade-up">"조찬회의는 빈자리를 채우는 것이 아니라,<br>완벽하게 준비된 하나의 경험입니다."</p>
+    </div>
+
+    <div class="bg-white border border-line rounded-2xl p-7 fade-up">
+      <div class="space-y-5 text-sm md:text-base">
+        <div class="flex gap-4">
+          <div class="w-9 h-9 rounded-full bg-navy-dim flex items-center justify-center navy font-bold text-xs shrink-0" style="background:var(--navy-dim);">시간</div>
+          <div><div class="font-bold">매주 수요일 06:10 ~ 09:00</div><div class="text-gray-500 text-xs mt-1">조찬 네트워킹 모임</div></div>
+        </div>
+        <div class="flex gap-4">
+          <div class="w-9 h-9 rounded-full bg-navy-dim flex items-center justify-center navy font-bold text-xs shrink-0" style="background:var(--navy-dim);">장소</div>
+          <div><div class="font-bold">신청 시 상세 안내</div><div class="text-gray-500 text-xs mt-1">참관 신청 후 담당자가 장소와 주차 안내를 드립니다</div></div>
+        </div>
+        <div class="flex gap-4">
+          <div class="w-9 h-9 rounded-full bg-navy-dim flex items-center justify-center navy font-bold text-xs shrink-0" style="background:var(--navy-dim);">준비</div>
+          <div><div class="font-bold">명함 50장 이상 지참</div><div class="text-gray-500 text-xs mt-1">복장 : 비즈니스 / 세미정장</div></div>
+        </div>
+        <div class="flex gap-4">
+          <div class="w-9 h-9 rounded-full bg-navy-dim flex items-center justify-center navy font-bold text-xs shrink-0" style="background:var(--navy-dim);">대상</div>
+          <div><div class="font-bold">추천으로 성장하고 싶은 모든 사업가</div><div class="text-gray-500 text-xs mt-1">업종 중복 시 대안 챕터를 안내해드립니다</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Benefits ===== -->
+<section class="py-20 px-5 bg-white">
+  <div class="max-w-6xl mx-auto">
+    <div class="eyebrow mb-3 fade-up">WHY BNI</div>
+    <h2 class="text-2xl md:text-3xl font-black mb-10 fade-up">BNI 3대 핵심 혜택</h2>
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="cat-card text-center fade-up">
+        <div class="w-14 h-14 rounded-full mx-auto mb-5 flex items-center justify-center" style="background:var(--navy-dim);">
+          <svg width="26" height="26" viewBox="0 0 52 52" fill="none" stroke="var(--navy-bright)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 20 L30 12 v28 L6 32 z"/><path d="M30 16 L44 10 v32 L30 36"/><path d="M14 32 l3 12"/></svg>
+        </div>
+        <h3 class="font-bold text-lg mb-2">독점 마케팅 팀</h3>
+        <p class="text-sm text-gray-500 leading-relaxed">급여 없는 대규모 마케팅 팀 운영 및 업종별 독점권 확보</p>
+      </div>
+      <div class="cat-card text-center fade-up">
+        <div class="w-14 h-14 rounded-full mx-auto mb-5 flex items-center justify-center" style="background:var(--navy-dim);">
+          <svg width="26" height="26" viewBox="0 0 52 52" fill="none" stroke="var(--navy-bright)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="26" cy="26" r="20"/><path d="M6 26h40 M26 6c8 6 8 34 0 40 M26 6c-8 6-8 34 0 40"/></svg>
+        </div>
+        <h3 class="font-bold text-lg mb-2">글로벌 파이프라인</h3>
+        <p class="text-sm text-gray-500 leading-relaxed">안정적인 고객 파이프라인 구축 및 글로벌 네트워크 활용</p>
+      </div>
+      <div class="cat-card text-center fade-up">
+        <div class="w-14 h-14 rounded-full mx-auto mb-5 flex items-center justify-center" style="background:var(--navy-dim);">
+          <svg width="26" height="26" viewBox="0 0 52 52" fill="none" stroke="var(--navy-bright)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M26 8 L48 18 L26 28 L4 18 Z"/><path d="M14 22 v14 c0 5 24 5 24 0 v-14"/></svg>
+        </div>
+        <h3 class="font-bold text-lg mb-2">최고의 성장 인프라</h3>
+        <p class="text-sm text-gray-500 leading-relaxed">체계적인 교육 커리큘럼과 경험 많은 사업가들의 멘토링</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Referral / Culture ===== -->
+<section id="referral" class="py-20 px-5 bg-navy text-white" style="background:var(--navy);">
+  <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+    <div>
+      <div class="eyebrow mb-3 fade-up" style="color:#9fc3e0;">REFERRAL CULTURE</div>
+      <h2 class="text-2xl md:text-3xl font-black mb-5 fade-up">추천이 곧 성과가 되는 문화</h2>
+      <p class="text-white/80 text-sm md:text-base leading-relaxed mb-6 fade-up">
+        BNI 더강남 챕터는 "기버스 게인(Givers Gain®)" 철학을 기반으로 운영됩니다.
+        먼저 추천하고 도움을 주는 사람이 결국 더 많은 비즈니스 기회를 얻는다는
+        원칙 아래, 매주 모임에서 실제 레퍼럴이 오가고 있습니다.
+      </p>
+      <a href="members.html" class="inline-block px-6 py-3 rounded-full bg-white navy font-bold text-sm hover:opacity-90 transition fade-up">전체 멤버 보기 →</a>
+    </div>
+    <div class="grid grid-cols-1 gap-4 fade-up">
+      <div class="rounded-2xl p-6 bg-white/10 border border-white/15">
+        <div class="text-2xl font-black mb-1">업종당 1명</div>
+        <div class="text-sm text-white/70">동일 업종 독점 멤버십 원칙</div>
+      </div>
+      <div class="rounded-2xl p-6 bg-white/10 border border-white/15">
+        <div class="text-2xl font-black mb-1">주 1회</div>
+        <div class="text-sm text-white/70">빠짐없이 진행되는 정기 조찬회의</div>
+      </div>
+      <div class="rounded-2xl p-6 bg-white/10 border border-white/15">
+        <div class="text-2xl font-black mb-1">전담 호스트</div>
+        <div class="text-sm text-white/70">모든 방문객에게 1:1로 배정되는 비지터 호스트</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Apply CTA ===== -->
+<section id="apply" class="py-24 px-5 bg-white">
+  <div class="max-w-3xl mx-auto text-center">
+    <div class="eyebrow mb-3 fade-up">APPLY TO OBSERVE</div>
+    <h2 class="text-2xl md:text-3xl font-black mb-4 fade-up">참관 신청하기</h2>
+    <p class="text-gray-500 text-sm md:text-base mb-10 fade-up">
+      BNI 더강남 챕터의 정기 조찬회의에 참관자로 초대합니다.<br>
+      아래 연락처로 문의하시면 비지터 호스트팀이 안내해드립니다.
+    </p>
+    <div class="bg-panel-2 border border-line rounded-2xl p-8 text-left max-w-md mx-auto fade-up">
+      <div class="text-xs font-bold navy-bright mb-3">비지터 호스트팀 문의</div>
+      <div class="space-y-2 text-sm text-gray-700">
+        <div>담당자 : <b>비지터 호스트 리더</b></div>
+        <div>연락처 : <a href="tel:" class="navy underline">문의 시 안내</a></div>
+        <div>이메일 : <a href="mailto:" class="navy underline">문의 시 안내</a></div>
+      </div>
+      <p class="text-[11px] text-gray-400 mt-4">※ 실제 담당자 연락처 및 이메일로 교체하여 사용해주세요.</p>
+    </div>
+    <div class="flex flex-wrap justify-center gap-3 mt-8 fade-up">
+      <a href="mailto:" class="px-6 py-3 rounded-full bg-red-brand text-white font-bold text-sm hover:opacity-90 transition">이메일로 문의하기</a>
+      <a href="members.html" class="px-6 py-3 rounded-full border border-line font-bold text-sm navy hover:bg-panel-2 transition">멤버 디렉토리 보기</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Footer ===== -->
+<footer class="py-10 px-5 border-t border-line bg-panel-2">
+  <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between gap-6">
+    <div>
+      <div class="font-black navy">BNI 더강남 챕터</div>
+      <div class="text-xs text-gray-500 mt-1">THE GANGNAM SHOWCASE CHAPTER</div>
+    </div>
+    <nav class="flex flex-wrap gap-x-6 gap-y-2 text-sm font-bold text-gray-600">
+      <a href="#home" class="hover:text-[--navy]">Home</a>
+      <a href="#referral" class="hover:text-[--navy]">추천사례</a>
+      <a href="members.html" class="hover:text-[--navy]">멤버</a>
+      <a href="#meeting" class="hover:text-[--navy]">정기모임</a>
+      <a href="#apply" class="hover:text-[--navy]">참관신청</a>
+    </nav>
+  </div>
+  <div class="max-w-6xl mx-auto text-[11px] text-gray-400 mt-8">
+    © BNI 더강남 챕터 · 비지터 호스트팀. 이 페이지는 내부 안내용 템플릿이며 실제 운영 정보로 교체하여 사용하세요.
+  </div>
+</footer>
+
+<script>
+  // mobile menu toggle
+  const menuBtn = document.getElementById('menuBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+  menuBtn.addEventListener('click', ()=> mobileMenu.classList.toggle('hidden'));
+  mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', ()=> mobileMenu.classList.add('hidden')));
+
+  // scroll fade-in
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('show'); io.unobserve(e.target); } });
+  }, {threshold:.15});
+  document.querySelectorAll('.fade-up').forEach(el => io.observe(el));
+</script>
+</body>
+</html>

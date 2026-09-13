@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>BNI THE GANGNAM SHOWCASE CHAPTER</title>
+    <!-- Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Noto Sans KR', sans-serif; background-color: #f3f4f6; }
+        .bni-red { color: #cf2030; }
+        .bg-bni-red { background-color: #cf2030; }
+        /* 행 배경색 정의 */
+        .row-green { background-color: #d1fae5; border: 1px solid #a7f3d0; } /* 그린 라이트 */
+        .row-yellow { background-color: #fef08a; border: 1px solid #fde047; } /* 노란 배경 */
+        .row-red { background-color: #fecaca; border: 1px solid #fca5a5; }   /* 빨간 배경 */
+        .row-blue { background-color: #bae6fd; border: 1px solid #7dd3fc; }  /* 신입/파란 배경 */
+        .row-white { background-color: #ffffff; border: 1px solid #e5e7eb; } /* 기본 */
+        
+        /* 아코디언 애니메이션 */
+        .accordion-content { transition: max-height 0.3s ease-out, padding 0.3s ease; max-height: 0; overflow: hidden; }
+        .accordion-content.open { max-height: 2000px; /* 충분히 큰 값 */ }
+        .chevron { transition: transform 0.3s ease; }
+        .chevron.open { transform: rotate(180deg); }
+    </style>
+</head>
+<body class="text-gray-800 pb-20">
+
+    <!-- Header -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="px-4 py-3 flex items-center justify-between">
+            <h1 class="text-lg font-black bni-red tracking-tight leading-tight">
+                BNI THE GANGNAM<br><span class="text-sm text-gray-600">SHOWCASE CHAPTER</span>
+            </h1>
+            <div class="text-xs text-right text-gray-500 font-medium">
+                26년 9월 2일<br>기준
+            </div>
+        </div>
+    </header>
+
+    <!-- Info Section -->
+    <section class="bg-white mx-4 mt-4 p-4 rounded-xl shadow-sm text-xs leading-relaxed border border-gray-100">
+        <div class="grid grid-cols-2 gap-2 mb-2 pb-2 border-b border-gray-100">
+            <div><span class="font-bold text-gray-500">런칭일:</span> 2019.04.03</div>
+            <div><span class="font-bold text-gray-500">런칭디렉터:</span> 이정화, 박진영</div>
+            <div class="col-span-2"><span class="font-bold text-gray-500">디렉터/앰배서더:</span> 정진석 / 성민석, 박선경</div>
+        </div>
+        <div class="flex flex-wrap gap-2 text-[10px] items-center">
+            <span class="px-2 py-1 bg-yellow-400 text-yellow-900 rounded-full font-bold">골드클럽</span>
+            <span class="px-2 py-1 bg-green-500 text-white rounded-full font-bold">그린클럽</span>
+            <span class="px-2 py-1 bg-green-100 text-green-800 rounded-full font-bold border border-green-200">그린 라이트</span>
+        </div>
+    </section>
+
+    <!-- Search Bar -->
+    <section class="px-4 mt-4 sticky top-[68px] z-40 bg-[#f3f4f6] pb-2 pt-2">
+        <div class="relative">
+            <input type="text" id="searchInput" placeholder="이름, 회사명, 업종으로 검색" class="w-full pl-10 pr-4 py-3 rounded-full border border-gray-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-red-500 text-sm">
+            <svg class="w-5 h-5 absolute left-3 top-3 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+        </div>
+    </section>
+
+    <!-- Member List Container -->
+    <main id="memberContainer" class="px-4 mt-2 space-y-3">
+        <!-- JS will populate this -->
+    </main>
+
+    <script>
+        // Data Extraction from Image
+        const data = [
+            {
+                group: "식음료 · 외식 · 식자재",
+                members: [
+                    { no: 1, type: "식품유통", name: "채상훈", company: "(주)늘프레시", field: "프랜차이즈 유통/축산", role: "ST", style: "row-green", badge: "BNI" },
+                    { no: 2, type: "케이터링", name: "김구영", company: "(주)아쿠스", field: "그레놀라/케이터링", role: "이벤트팀리더", style: "row-green", badge: "BNI" },
+                    { no: 3, type: "쿠키", name: "김윤이", company: "유어그린", field: "제과(쿠키제조)", role: "성장팀", style: "row-yellow" },
+                    { no: 4, type: "외식", name: "박시호", company: "한판도", field: "고기전문점(삼겹/대한 고기집)", role: "PR팀리더", style: "row-yellow" },
+                    { no: 5, type: "원두", name: "양준영", company: "로스팅트리", field: "커피원두 제조, 유통", role: "교육팀", style: "row-yellow" },
+                    { no: 32, type: "화장품", name: "박경라", company: "이로미라라(주)", field: "화장품 구매/중개", role: "신입멤버", style: "row-blue" } // Added here for UI balance based on image layout
+                ]
+            },
+            {
+                group: "전문자문 · 행정",
+                members: [
+                    { no: 6, type: "채권추심", name: "피기순", company: "새한신용정보", field: "채권추심, 신용조사", role: "원두팀원", style: "row-green" },
+                    { no: 7, type: "세무사", name: "최용호", company: "수호재", field: "기장, 양도, 상속, 증여", role: "멘토링팀", style: "row-yellow" },
+                    { no: 8, type: "노무사", name: "김정원", company: "노무법인 정명", field: "근로계약서, 급여, 노동사건", role: "성장팀리더", style: "row-yellow" },
+                    { no: 9, type: "행정사", name: "박흥석", company: "해드림행정사무소", field: "행정사", role: "비지터호스트팀", style: "row-yellow" },
+                    { no: 10, type: "기업컨설팅", name: "박정환", company: "퍼스트컴퍼니", field: "ISO인증, 정책자금컨설팅", role: "PR팀", style: "row-yellow" },
+                    { no: 11, type: "법무사", name: "박진혁", company: "포인트 법무사사무소", field: "부동산/법인 등기, 소송", role: "부ST", style: "row-red" },
+                    { no: 12, type: "변호사", name: "권기준", company: "수호재", field: "기업법률자문, 소송대리", role: "성장팀", style: "row-red" },
+                    { no: 13, type: "변리사", name: "황승재", company: "청화특허법률사무소", field: "특허, 상표, 벤처인증", role: "멘토링팀", style: "row-red" }
+                ]
+            },
+            {
+                group: "부동산 · 건축 · 시설",
+                members: [
+                    { no: 14, type: "건축사", name: "문영아", company: "이즈모이앤씨건축사", field: "주택,오피스텔,오피스 인허가", role: "부의장", style: "row-green", badge: "BNI" },
+                    { no: 15, type: "변기세정기", name: "김인규", company: "(주)세이프택", field: "자동변기세정기 유통", role: "원두팀원", style: "row-green" },
+                    { no: 16, type: "모듈건축", name: "이보문", company: "(주)이룸건축", field: "모듈건축", role: "비지터호스트팀", style: "row-green" },
+                    { no: 17, type: "실내건축", name: "백양현", company: "(주)비앤비아이티에프", field: "실내건축공사", role: "이벤트팀", style: "row-green", badge: "BNI" },
+                    { no: 18, type: "냉난방", name: "김성민", company: "(주)에이씨컨트롤", field: "냉난방설치공사", role: "데이터관리", style: "row-yellow" },
+                    { no: 19, type: "인테리어", name: "이성재", company: "(주)공간재생연구소", field: "F&B 상업용 인테리어", role: "신입멤버", style: "row-yellow" },
+                    { no: 20, type: "청소", name: "정동영", company: "클린마인드", field: "냉난방기, 입주청소 등", role: "비지터호스트팀", style: "row-yellow" },
+                    { no: 21, type: "통신공사", name: "이관철", company: "케이플랜드", field: "통신공사, CCTV", role: "이벤트팀", style: "row-yellow" },
+                    { no: 22, type: "사무용가구", name: "배봉련", company: "(주)에이치디플랜어스", field: "사무용 가구", role: "PR팀", style: "row-green", badge: "BNI" },
+                    { no: 23, type: "전기소방", name: "전형민", company: "이서파워텍", field: "전기, 소방공사", role: "멤버십위원회", style: "row-yellow" },
+                    { no: 24, type: "종합건설", name: "박태현", company: "(주)일경이앤씨", field: "종합건설업", role: "비지터호스트팀", style: "row-yellow" },
+                    { no: 25, type: "타워크레인", name: "심용수", company: "(주)화성건기", field: "타워크레인 임대", role: "원두팀원", style: "row-red" },
+                    { no: 26, type: "인테리어", name: "이성우", company: "(주)아르젠", field: "병·의원 전문 인테리어", role: "신입멤버", style: "row-red" },
+                    { no: 27, type: "건축설비", name: "송주영", company: "(주)이에스원", field: "건축설비(기계·소방)", role: "신입멤버", style: "row-blue" }
+                ]
+            },
+            {
+                group: "웰니스 · 뷰티 · 의료",
+                members: [
+                    { no: 28, type: "한의원", name: "김동희", company: "청주나한의원", field: "한의원", role: "비지터호스트팀", style: "row-yellow", badge: "BNI" },
+                    { no: 29, type: "미용실", name: "정하옥", company: "VIP헤어", field: "복구펌,악성곱슬 헤어샵", role: "멤버십위원회", style: "row-yellow" },
+                    { no: 30, type: "두피관리", name: "임윤하", company: "탑스칼프", field: "두피, 탈모, 관리", role: "교육팀", style: "row-yellow" },
+                    { no: 31, type: "반영구화장", name: "김나윤", company: "포시즌왁싱", field: "반영구/ 왁싱", role: "이벤트팀", style: "row-white" }
+                ]
+            },
+            {
+                group: "라이프스타일 · 이벤트 · 리테일",
+                members: [
+                    { no: 33, type: "여행사", name: "김동만", company: "오즈여행사", field: "하나투어 여행사", role: "원두팀원리더", style: "row-green" },
+                    { no: 34, type: "의류", name: "선유정", company: "아비뉴197", field: "브랜드 여성의류", role: "교육팀", style: "row-yellow" },
+                    { no: 35, type: "꽃화환", name: "서연주", company: "페아라플라워", field: "꽃, 화환, 화분", role: "PR팀", style: "row-yellow" },
+                    { no: 36, type: "맞춤정장", name: "이혜원", company: "피움", field: "남녀 맞춤 의류제작", role: "멘토링팀", style: "row-yellow" },
+                    { no: 37, type: "결혼정보", name: "유정연", company: "소울라운지", field: "결혼 정보/이벤트 대행", role: "멘토링팀", style: "row-red" }
+                ]
+            },
+            {
+                group: "자동차 판매 · 리스 · 수리",
+                members: [
+                    { no: 38, type: "중고차", name: "김기남", company: "(주)티엠씨모터스", field: "중고차 매입·매매·리스", role: "의장", style: "row-green", badge: "BNI" },
+                    { no: 39, type: "리스렌탈", name: "하해진", company: "오토플랫폼", field: "리스 및 렌탈", role: "멤버십위원회", style: "row-green", badge: "BNI" },
+                    { no: 40, type: "현대차", name: "이호준", company: "현대자동차", field: "신차판매", role: " ", style: "row-yellow" },
+                    { no: 41, type: "사고수리", name: "정민주", company: "OK모터스", field: "자동차 사고수리 1급공업사", role: "이벤트팀", style: "row-yellow", badge: "BNI" },
+                    { no: 42, type: "벤츠", name: "박성호", company: "한성자동차", field: "벤츠 공식 딜러", role: "교육팀", style: "row-yellow" }
+                ]
+            },
+            {
+                group: "브랜딩 · 마케팅 · 디자인",
+                members: [
+                    { no: 43, type: "간판", name: "김현상", company: "디자인조이", field: "간판 디자인,제작,설치", role: "PR팀", style: "row-yellow", badge: "BNI" },
+                    { no: 44, type: "브랜딩", name: "김황린", company: "(주)감성미학 발전소", field: "CI, BI 로고, 브랜딩 개발", role: "멤버십위원회", style: "row-green" },
+                    { no: 45, type: "마케팅", name: "이현용", company: "(주)자이블", field: "디지털 마케팅", role: "교육팀리더", style: "row-green" },
+                    { no: 46, type: "판촉물", name: "조용익", company: "조앤지컴퍼니", field: "판촉물", role: "이벤트팀", style: "row-red" }
+                ]
+            },
+            {
+                group: "금융 · 보험 · 자산",
+                members: [
+                    { no: 47, type: "대출", name: "정대인", company: "하나은행", field: "담보, 신용, 기업 대출", role: "성장팀", style: "row-green", badge: "BNI" },
+                    { no: 48, type: "보험(손해)", name: "이승렬", company: "삼성화재", field: "자동차, 화재 손해보험", role: "비지터호스트팀", style: "row-green", badge: "BNI" },
+                    { no: 49, type: "손해사정(대인)", name: "이영민", company: "더도움손해사정", field: "손해사정사(대인)", role: "원두팀원", style: "row-yellow" },
+                    { no: 50, type: "보험(해외)", name: "이김재", company: "(주)글로벌브릿지에셋", field: "유배당 해외보험 및 연금", role: "멤버십위원회", style: "row-yellow" },
+                    { no: 51, type: "보험(생명)", name: "김미정", company: "메트라이프 생명보험", field: "생명보험, 법인보험", role: "비지터호스트팀", style: "row-yellow" },
+                    { no: 52, type: "손해사정(재물)", name: "김상효", company: "세정손해사정", field: "화재, 재물 손해사정", role: "성장팀", style: "row-red" }
+                ]
+            },
+            {
+                group: "IT · 통신 · 오피스 솔루션",
+                members: [
+                    { no: 53, type: "음향영상", name: "이강희", company: "(주)아이에스솔루션", field: "음향, 영상, LED전광판 시공", role: "멤버십위원회", style: "row-green", badge: "BNI" },
+                    { no: 54, type: "커피머신", name: "함성준", company: "함성커피", field: "커피머신 렌탈", role: "멘토링팀리더", style: "row-green" },
+                    { no: 55, type: "복합기", name: "최기영", company: "케이와이오피스", field: "재생토너 카트리지,복합기 렌탈", role: "교육팀", style: "row-yellow" },
+                    { no: 56, type: "렌탈", name: "김태현", company: "쿠쿠홈시스", field: "정수기,공기청정기 등 렌탈", role: "비지터호스트팀", style: "row-yellow" },
+                    { no: 57, type: "서버", name: "윤형식", company: "(주)루텍에스", field: "서버/컴퓨터 유지보수", role: "비지터호스트팀리더", style: "row-red" },
+                    { no: 58, type: "개발", name: "이용택", company: "두나미스 AI", field: "AI 소프트웨어 개발", role: "부ST", style: "row-red" },
+                    { no: 59, type: "핸드폰", name: "김범수", company: "다산도매폰", field: "건축설비(기계·소방)", role: "신입멤버", style: "row-blue" }
+                ]
+            }
+        ];
+
+        const container = document.getElementById('memberContainer');
+        const searchInput = document.getElementById('searchInput');
+
+        // 렌더링 함수
+        function renderData(searchTerm = '') {
+            container.innerHTML = '';
+            
+            data.forEach((groupData, index) => {
+                // 검색어 필터링
+                const filteredMembers = groupData.members.filter(m => 
+                    m.name.includes(searchTerm) || 
+                    m.company.includes(searchTerm) || 
+                    m.type.includes(searchTerm) ||
+                    m.field.includes(searchTerm)
+                );
+
+                if (filteredMembers.length === 0) return; // 검색 결과 없으면 그룹 숨김
+
+                // 기본적으로 검색 중이면 열어두고, 아니면 첫 번째만 열어둠
+                const isOpen = searchTerm !== '' ? true : (index === 0);
+
+                const groupHTML = `
+                    <div class="bg-white rounded-xl shadow-sm overflow-hidden mb-3 border border-gray-200">
+                        <!-- Accordion Header -->
+                        <button onclick="toggleAccordion(this)" class="w-full px-4 py-3 bg-gray-50 flex justify-between items-center border-b border-gray-100">
+                            <h2 class="font-bold text-gray-800">${groupData.group} <span class="text-xs text-gray-500 font-normal ml-1">(${filteredMembers.length}명)</span></h2>
+                            <svg class="w-5 h-5 text-gray-400 chevron ${isOpen ? 'open' : ''}" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
+                        
+                        <!-- Accordion Content -->
+                        <div class="accordion-content ${isOpen ? 'open' : ''} px-2 pb-2 pt-1 bg-white">
+                            <div class="space-y-2 mt-2">
+                                ${filteredMembers.map(m => `
+                                    <div class="${m.style} rounded-lg p-3 flex gap-3 items-center">
+                                        <!-- 번호 및 배지 -->
+                                        <div class="flex flex-col items-center justify-center min-w-[40px]">
+                                            <div class="text-sm font-black text-gray-700">${m.no}</div>
+                                            ${m.badge === 'BNI' ? `<div class="text-[8px] bg-green-700 text-white px-1 mt-1 rounded font-bold tracking-tighter">BNI</div>` : ''}
+                                        </div>
+                                        
+                                        <!-- 정보 -->
+                                        <div class="flex-1 w-full">
+                                            <div class="flex justify-between items-start mb-1">
+                                                <div class="flex items-center gap-1.5">
+                                                    <span class="font-bold text-base text-gray-900">${m.name}</span>
+                                                    <span class="text-xs px-1.5 py-0.5 bg-white/60 rounded text-gray-700 border border-black/10">${m.type}</span>
+                                                </div>
+                                                <div class="text-[10px] font-bold text-red-600 bg-red-50 px-1.5 py-0.5 rounded border border-red-100 whitespace-nowrap">${m.role}</div>
+                                            </div>
+                                            <div class="text-sm font-bold text-gray-800 mb-0.5 truncate">${m.company}</div>
+                                            <div class="text-xs text-gray-600 truncate leading-tight">${m.field}</div>
+                                        </div>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </div>
+                    </div>
+                `;
+                container.insertAdjacentHTML('beforeend', groupHTML);
+            });
+
+            if(container.innerHTML === '') {
+                container.innerHTML = '<div class="text-center py-10 text-gray-500 text-sm">검색 결과가 없습니다.</div>';
+            }
+        }
+
+        // 아코디언 토글 기능
+        window.toggleAccordion = function(button) {
+            const content = button.nextElementSibling;
+            const chevron = button.querySelector('.chevron');
+            
+            content.classList.toggle('open');
+            chevron.classList.toggle('open');
+        }
+
+        // 검색 이벤트 리스너
+        searchInput.addEventListener('input', (e) => {
+            renderData(e.target.value.trim());
+        });
+
+        // 초기 렌더링
+        renderData();
+    </script>
+</body>
+</html>
